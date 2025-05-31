@@ -2,6 +2,7 @@
 
 import React from "react";
 import styled from "styled-components";
+import Image from "next/image";
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -26,11 +27,7 @@ const Logo = styled.div`
   color: #4a6fb5;
   display: flex;
   align-items: center;
-
-  img {
-    height: 50px;
-    margin-right: 0.5rem;
-  }
+  gap: 0.5rem;
 
   @media (max-width: 768px) {
     margin-bottom: 1rem;
@@ -80,8 +77,8 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Logo>
-        <img src="/images/logo-header.png" alt="Logo da Escola" />
-        <img src="/images/logo-nome.png" alt="Logo da Escola" />
+        <Image src="/images/logo-header.png" alt="Logo da Escola" width={50} height={50} />
+        <Image src="/images/logo-nome.png" alt="Logo da Escola" width={150} height={50} />
 
         {/* <span>Escola de EducaçãoInfantil</span> */}
       </Logo>
