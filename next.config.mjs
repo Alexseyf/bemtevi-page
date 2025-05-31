@@ -1,13 +1,25 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Habilitando o suporte nativo para styled-components
   compiler: {
-    styledComponents: true,
+    styledComponents: {
+      displayName: true, // Facilita a depuração em ambiente de desenvolvimento
+      ssr: true,         // Garante renderização do lado do servidor
+    },
   },
+  // Desativando a otimização de imagens para evitar problemas
   images: {
-    unoptimized: true, // Isso permite que as imagens sejam renderizadas sem otimização, o que pode ajudar em problemas de carregamento
+    unoptimized: true,
   },
-  // Garantir que o publicPath esteja configurado corretamente
-  assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
+  // Configuração para rotas estáticas
+  async rewrites() {
+    return [
+      {
+        source: '/images/:path*',
+        destination: '/public/images/:path*',
+      },
+    ];
+  },
 };
 
 export default nextConfig;
