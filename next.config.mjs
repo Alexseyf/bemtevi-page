@@ -7,18 +7,11 @@ const nextConfig = {
       ssr: true,         // Garante renderização do lado do servidor
     },
   },
-  // Desativando a otimização de imagens para evitar problemas
+  // Configuração de imagens otimizadas
   images: {
-    unoptimized: true,
-  },
-  // Configuração para rotas estáticas
-  async rewrites() {
-    return [
-      {
-        source: '/images/:path*',
-        destination: '/public/images/:path*',
-      },
-    ];
+    unoptimized: false, // Garantir que as imagens sejam otimizadas
+    domains: [],
+    remotePatterns: [],
   },
 };
 
