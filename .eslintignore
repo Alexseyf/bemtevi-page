@@ -2,12 +2,12 @@
 node_modules
 .next
 out
-public
+# public
 build
 dist
 
-# Ignorar arquivos de configuração
-next.config.mjs
-postcss.config.mjs
-tailwind.config.mjs
-eslint.config.mjs
+# # Ignorar arquivos de configuração
+# next.config.mjs
+# postcss.config.mjs
+# tailwind.config.mjs
+# eslint.config.mjs
