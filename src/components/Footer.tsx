@@ -107,17 +107,14 @@ const Footer = () => {
     <FooterContainer>
       <FooterContent>
         <FooterColumn>
-          <h3>Escola Infantil</h3>
+          <h3>EEI Bem-te-vi</h3>
           <p>Um ambiente acolhedor e seguro para o desenvolvimento integral do seu filho.</p>
           <SocialLinks>
-            <a href="#" aria-label="Facebook">
+            <a href="https://www.facebook.com/escolainfantilbemtevi/?locale=pt_BR" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
               <FaFacebook />
             </a>
-            <a href="#" aria-label="Instagram">
+            <a href="https://www.instagram.com/bemteviescolainfantil/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
               <FaInstagram />
-            </a>
-            <a href="#" aria-label="YouTube">
-              <FaYoutube />
             </a>
           </SocialLinks>
         </FooterColumn>
@@ -147,11 +144,10 @@ const Footer = () => {
         <FooterColumn>
           <h3>Contato</h3>
           <FooterLinks>
-            <li>Rua das Flores, 123 - Jardim Primavera</li>
-            <li>Porto Alegre - RS, 90000-000</li>
-            <li>(51) 3333-4444</li>
-            <li>WhatsApp: (51) 99999-8888</li>
-            <li>contato@escolainfantil.com.br</li>
+            <li>Rua Quinze de Novembro, 869</li>
+            <li>Pelotas- RS, 96015-000</li>
+            <li>WhatsApp: (53) 99128-0129</li>
+            <li>escolabemteviinfantil@gmail.com</li>
           </FooterLinks>
         </FooterColumn>
       </FooterContent>
@@ -168,7 +164,7 @@ const Footer = () => {
           para o futuro das nossas crianças.
         </p>
         <p>
-          <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">Política de Privacidade</a> | <a href="#" target="_blank" rel="noopener noreferrer">Termos de Uso</a>
         </p>
       </FooterBottom>
     </FooterContainer>
