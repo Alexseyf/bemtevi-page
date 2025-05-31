@@ -8,7 +8,6 @@ import OurClasses from '../components/OurClasses';
 import InverseShift from '../components/InverseShift';
 import ExtraActivities from '../components/ExtraActivities';
 import PhotoGallery from '../components/PhotoGallery';
-import Testimonials from '../components/Testimonials';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import BackToTop from '../components/BackToTop';

@@ -2,8 +2,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { FaBook, FaMusic, FaUtensils } from 'react-icons/fa';
-import { GiBoxingGlove } from 'react-icons/gi';
+import { FaBook, FaUtensils } from 'react-icons/fa';
 import { MdOutlineSportsHandball } from "react-icons/md";
 import { FaPaintBrush } from "react-icons/fa";
 
@@ -116,7 +115,7 @@ const InverseShift = () => {
       <ContentWrapper>
         <TextContent>
           <p>
-            Nossa proposta de Turno Inverso, a "Manhã Criativa", foi desenvolvida especialmente 
+            Nossa proposta de Turno Inverso, a &ldquo;Manhã Criativa&rdquo;, foi desenvolvida especialmente 
             para atender crianças do ensino fundamental que estudam no período da tarde em outras escolas.
           </p>
           <p>

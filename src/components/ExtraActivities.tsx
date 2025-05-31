@@ -3,7 +3,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaMusic, FaChild, FaUtensils } from 'react-icons/fa';
-import { GiBoxingGlove } from 'react-icons/gi';
 import { MdSportsMartialArts } from "react-icons/md";
 
 const ActivitiesContainer = styled.section`
