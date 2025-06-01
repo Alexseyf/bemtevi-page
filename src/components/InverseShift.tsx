@@ -51,6 +51,9 @@ const TextContent = styled.div`
 
 const ImageContent = styled.div`
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   
   img {
     width: 100%;
@@ -156,7 +159,7 @@ const InverseShift = () => {
         <TextContent>
           <p>
             Nossa proposta de Turno Inverso, a &ldquo;Manhã Criativa&rdquo;, foi desenvolvida especialmente 
-            para atender crianças do ensino fundamental que estudam no período da tarde em outras escolas.
+            para atender crianças do ensino fundamental que estudam no período da tarde.
           </p>
           <p>
             Oferecemos um ambiente seguro e estimulante, com atividades estruturadas que complementam 
@@ -216,7 +219,7 @@ const InverseShift = () => {
         </TextContent>
         
         <ImageContent>
-          <img src="/images/turno-inverso.jpg" alt="Crianças participando de atividades do turno inverso" />
+          <img src="/images/turno_inverso.png" alt="Crianças participando de atividades do turno inverso" />
         </ImageContent>
       </ContentWrapper>
     </InverseShiftContainer>
