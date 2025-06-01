@@ -56,7 +56,7 @@ const MenuButton = styled.button`
   }
 `;
 
-const Nav = styled.nav<{ isOpen?: boolean }>`
+const Nav = styled.nav<{ $isOpen?: boolean }>`
   display: flex;
   gap: 1.5rem;
   align-items: center;
@@ -65,12 +65,12 @@ const Nav = styled.nav<{ isOpen?: boolean }>`
     flex-direction: column;
     gap: 1rem;
     width: 100%;
-    max-height: ${props => (props.isOpen ? '500px' : '0')};
+    max-height: ${props => (props.$isOpen ? '500px' : '0')};
     overflow: hidden;
     transition: max-height 0.3s ease-in-out;
-    opacity: ${props => (props.isOpen ? '1' : '0')};
-    visibility: ${props => (props.isOpen ? 'visible' : 'hidden')};
-    margin-top: ${props => (props.isOpen ? '1rem' : '0')};
+    opacity: ${props => (props.$isOpen ? '1' : '0')};
+    visibility: ${props => (props.$isOpen ? 'visible' : 'hidden')};
+    margin-top: ${props => (props.$isOpen ? '1rem' : '0')};
   }
 `;
 
@@ -144,14 +144,14 @@ const Header = () => {
         </MenuButton>
       </Logo>
 
-      <Nav isOpen={isMenuOpen}>
+      <Nav $isOpen={isMenuOpen}>
         <NavLink href="#sobre">Sobre Nós</NavLink>
         <NavLink href="#turmas">Nossas Turmas</NavLink>
         <NavLink href="#turno-inverso">Turno Inverso</NavLink>
         <NavLink href="#atividades">Atividades Extras</NavLink>
         <NavLink href="#contato">Contato</NavLink>
         <CTAButton
-          href="https://wa.me/5553991280638?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20a%20Escola%20Infantil."
+          href="https://wa.me/5553991280638?text=Olá!%20Gostaria%20de%20agendar%20uma%20visita%20para%20conhecer%20a%20escola."
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Contato via WhatsApp"

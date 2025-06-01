@@ -48,16 +48,22 @@ const FormGroup = styled.div`
 const Label = styled.label`
   display: block;
   font-size: 1rem;
-  color: #555;
+  color: #444;
   margin-bottom: 0.5rem;
+  font-weight: 500;
 `;
 
 const Input = styled.input`
   width: 100%;
   padding: 0.8rem;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1rem;
+  color: #333;
+  
+  &::placeholder {
+    color: #555;
+  }
   
   &:focus {
     outline: none;
@@ -68,11 +74,16 @@ const Input = styled.input`
 const TextArea = styled.textarea`
   width: 100%;
   padding: 0.8rem;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1rem;
   min-height: 150px;
   resize: vertical;
+  color: #333;
+  
+  &::placeholder {
+    color: #666;
+  }
   
   &:focus {
     outline: none;
@@ -141,7 +152,7 @@ const IconWrapper = styled.div`
 const InfoText = styled.div`
   p {
     margin: 0;
-    color: #555;
+    color: #333;
     line-height: 1.5;
   }
 `;
@@ -159,27 +170,98 @@ const MapContainer = styled.div`
 `;
 
 const Contact = () => {
+  const whatsappNumber = "5553991280638";
+  
+  const [formData, setFormData] = React.useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: ""
+  });
+  
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prevData => ({
+      ...prevData,
+      [id]: value
+    }));
+  };
+  
+  const createWhatsappLink = () => {
+    const { name, email, phone, message } = formData;
+    
+    if (!name || !phone || !message) {
+      alert("Por favor, preencha todos os campos obrigatórios: Nome, Telefone e Mensagem.");
+      return "#";
+    }
+    
+    const whatsappMessage = encodeURIComponent(
+      `*Contato via Site*\n\n` +
+      `*Nome*: ${name}\n` +
+      `*E-mail*: ${email}\n` +
+      `*Telefone*: ${phone}\n\n` +
+      `*Mensagem*:\n${message}`
+    );
+    
+    return `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+  };
+  
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const whatsappLink = createWhatsappLink();
+    if (whatsappLink !== "#") {
+      window.open(whatsappLink, "_blank");
+    }
+  };
+
   return (
     <ContactContainer id="contato">
       <SectionTitle>Contato e Localização</SectionTitle>
       <ContactWrapper>
-        <ContactForm>
+        <ContactForm onSubmit={handleSubmit}>
           <FormTitle>Envie uma Mensagem</FormTitle>
           <FormGroup>
-            <Label htmlFor="name">Nome Completo</Label>
-            <Input type="text" id="name" placeholder="Seu nome" />
+            <Label htmlFor="name">Nome Completo*</Label>
+            <Input 
+              type="text" 
+              id="name" 
+              placeholder="Seu nome" 
+              value={formData.name}
+              onChange={handleInputChange}
+              required
+            />
           </FormGroup>
           <FormGroup>
             <Label htmlFor="email">E-mail</Label>
-            <Input type="email" id="email" placeholder="Seu e-mail" />
+            <Input 
+              type="email" 
+              id="email" 
+              placeholder="Seu e-mail" 
+              value={formData.email}
+              onChange={handleInputChange}
+            />
           </FormGroup>
           <FormGroup>
-            <Label htmlFor="phone">Telefone</Label>
-            <Input type="tel" id="phone" placeholder="Seu telefone" />
+            <Label htmlFor="phone">Telefone*</Label>
+            <Input 
+              type="tel" 
+              id="phone" 
+              placeholder="Seu telefone" 
+              value={formData.phone}
+              onChange={handleInputChange}
+              required
+            />
           </FormGroup>
           <FormGroup>
-            <Label htmlFor="message">Mensagem</Label>
-            <TextArea id="message" placeholder="Escreva sua mensagem aqui..." />
+            <Label htmlFor="message">Mensagem*</Label>
+            <TextArea 
+              id="message" 
+              placeholder="Escreva sua mensagem aqui..." 
+              value={formData.message}
+              onChange={handleInputChange}
+              required
+            />
           </FormGroup>
           <SubmitButton type="submit">Enviar Mensagem</SubmitButton>
         </ContactForm>

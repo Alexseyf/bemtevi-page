@@ -146,7 +146,7 @@ const Footer = () => {
           <FooterLinks>
             <li>Rua Quinze de Novembro, 869</li>
             <li>Pelotas- RS, 96015-000</li>
-            <li>WhatsApp: (53) 99128-0129</li>
+            <li>WhatsApp: (53) 99128-0638</li>
             <li>escolabemteviinfantil@gmail.com</li>
           </FooterLinks>
         </FooterColumn>

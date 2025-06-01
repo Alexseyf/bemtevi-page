@@ -35,7 +35,7 @@ const WhatsAppButton = styled.a`
 const WhatsAppFloat = () => {
   return (
     <WhatsAppButton 
-      href="https://wa.me/5553991280638?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20a%20Escola%20Infantil."
+      href="https://wa.me/5553991280638?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20a%20escola."
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contato via WhatsApp"
