@@ -52,9 +52,9 @@ const AboutUs = () => {
   return (
     <AboutContainer id="sobre">
       <AboutContent>
-        <AboutImage>
+        {/* <AboutImage>
           <img src="/images/about-school.jpg" alt="Ambiente acolhedor da nossa escola" />
-        </AboutImage>
+        </AboutImage> */}
         <AboutText>
           <h2>Nossa Missão</h2>
           <p>

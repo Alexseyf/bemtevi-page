@@ -218,9 +218,9 @@ const InverseShift = () => {
           </ActivitiesList>
         </TextContent>
         
-        <ImageContent>
+        {/* <ImageContent>
           <img src="/images/turno_inverso.png" alt="Crianças participando de atividades do turno inverso" />
-        </ImageContent>
+        </ImageContent> */}
       </ContentWrapper>
     </InverseShiftContainer>
   );

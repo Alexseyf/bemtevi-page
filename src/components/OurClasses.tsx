@@ -169,9 +169,9 @@ const OurClasses = () => {
       <ClassesGrid>
         {classes.map((classItem) => (
           <ClassCard key={classItem.id}>
-            <ClassImage>
+            {/* <ClassImage>
               <img src={classItem.image} alt={`Turma ${classItem.name}`} />
-            </ClassImage>
+            </ClassImage> */}
             <ClassContent>
               <ClassTitle>{classItem.name}</ClassTitle>
               <ClassAge>Faixa etária: {classItem.age}</ClassAge>
