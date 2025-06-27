@@ -2,15 +2,15 @@
 
 import React, { useState } from "react";
 import styled from "styled-components";
-import Image from "next/image";
 
 const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(rgba(74, 111, 181, 0.4), rgba(74, 111, 181, 0.4));
+  background-size: cover;
+  background-position: center;
   position: sticky;
   top: 0;
   z-index: 50;
@@ -23,9 +23,9 @@ const HeaderContainer = styled.header`
 `;
 
 const Logo = styled.div`
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
-  color: #4a6fb5;
+  color: white;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -49,7 +49,7 @@ const MenuButton = styled.button`
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #4a6fb5;
+  color: white;
   
   @media (max-width: 768px) {
     display: block;
@@ -75,13 +75,13 @@ const Nav = styled.nav<{ $isOpen?: boolean }>`
 `;
 
 const NavLink = styled.a`
-  color: #333;
+  color: white;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
 
   &:hover {
-    color: #4a6fb5;
+    color: #e8c938;
   }
 
   @media (max-width: 768px) {
@@ -92,9 +92,9 @@ const NavLink = styled.a`
 `;
 
 const CTAButton = styled.a`
-  background-color: #4a6fb5;
-  color: white;
-  padding: 0.5rem 1rem;
+  background-color: #e8c938;
+  color: #333;
+  padding: 0.75rem 1.5rem;
   border-radius: 4px;
   font-weight: 500;
   display: flex;
@@ -103,7 +103,7 @@ const CTAButton = styled.a`
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: #5077bf;
+    background-color: #bda42f;
   }
 
   @media (max-width: 768px) {
@@ -124,20 +124,7 @@ const Header = () => {
     <HeaderContainer>
       <Logo>
         <LogoContainer>
-          <Image 
-            src="/images/logo-header.png" 
-            alt="Logo da Escola" 
-            width={50} 
-            height={50}
-            priority
-          />
-          <Image 
-            src="/images/logo-nome.png" 
-            alt="Logo da Escola" 
-            width={150} 
-            height={50}
-            priority
-          />
+          
         </LogoContainer>
         <MenuButton onClick={toggleMenu}>
           {isMenuOpen ? '✕' : '☰'}

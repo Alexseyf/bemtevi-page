@@ -8,7 +8,7 @@ const HeroContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(rgba(74, 111, 181, 0.4), rgba(107, 157, 250, 0.4)), url('/images/hero-background.jpg');
+  background: linear-gradient(rgba(74, 111, 181, 0.4), rgba(107, 157, 250, 0.4));
   background-size: cover;
   background-position: center;
   color: white;
