@@ -12,6 +12,15 @@ const ChatContainer = styled.div<{ $isOpen: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+
+  ${props => props.$isOpen && `
+    @media (max-width: 600px) {
+      bottom: 0;
+      right: 0;
+      left: 0;
+      align-items: stretch;
+    }
+  `}
 `;
 
 const ChatButton = styled.button<{ $isOpen: boolean }>`
@@ -54,10 +63,10 @@ const ChatWindow = styled.div<{ $isOpen: boolean }>`
   
   @media (max-width: 600px) {
     width: 100vw;
-    right: 0;
+    left: 0;
     height: 40vh;
     bottom: 0;
-    border-radius: 0;
+    border-radius: 12px;
   }
   ${props => !props.$isOpen && `
     opacity: 0;
@@ -288,45 +297,44 @@ const Chatbot: React.FC = () => {
 
   return (
     <ChatContainer $isOpen={isOpen}>
-      <ChatWindow $isOpen={isOpen}>
-        <ChatHeader>
-          <HeaderTitle>
-            <FaRobot /> Assistente Virtual
-          </HeaderTitle>
-          <HeaderControls>
-            <ControlButton onClick={toggleChat} aria-label="Minimizar">
-              <FaMinus />
-            </ControlButton>
-          </HeaderControls>
-        </ChatHeader>
-        
-        <MessagesContainer>
-          {messages.map((msg, index) => (
-            <MessageBubble key={index} $isUser={msg.role === 'user'}>
-              {msg.parts[0].text}
-            </MessageBubble>
-          ))}
-          {isLoading && (
-            <TypingIndicator>Digitando...</TypingIndicator>
-          )}
-          <div ref={messagesEndRef} />
-        </MessagesContainer>
-        
-        <InputArea onSubmit={handleSendMessage}>
-          <InputField 
-            ref={inputRef}
-            type="text" 
-            placeholder="Digite sua mensagem..." 
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            disabled={isLoading}
-          />
-          <SendButton type="submit" disabled={isLoading || !inputValue.trim()}>
-            <FaPaperPlane />
-          </SendButton>
-        </InputArea>
-      </ChatWindow>
-
+      {isOpen && (
+        <ChatWindow $isOpen={isOpen}>
+          <ChatHeader>
+            <HeaderTitle>
+              <FaRobot /> Assistente Virtual
+            </HeaderTitle>
+            <HeaderControls>
+              <ControlButton onClick={toggleChat} aria-label="Minimizar">
+                <FaMinus />
+              </ControlButton>
+            </HeaderControls>
+          </ChatHeader>
+          <MessagesContainer>
+            {messages.map((msg, index) => (
+              <MessageBubble key={index} $isUser={msg.role === 'user'}>
+                {msg.parts[0].text}
+              </MessageBubble>
+            ))}
+            {isLoading && (
+              <TypingIndicator>Digitando...</TypingIndicator>
+            )}
+            <div ref={messagesEndRef} />
+          </MessagesContainer>
+          <InputArea onSubmit={handleSendMessage}>
+            <InputField 
+              ref={inputRef}
+              type="text" 
+              placeholder="Digite sua mensagem..." 
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              disabled={isLoading}
+            />
+            <SendButton type="submit" disabled={isLoading || !inputValue.trim()}>
+              <FaPaperPlane />
+            </SendButton>
+          </InputArea>
+        </ChatWindow>
+      )}
       <ChatButton onClick={toggleChat} $isOpen={isOpen} aria-label="Abrir chat">
         <FaRobot />
       </ChatButton>
