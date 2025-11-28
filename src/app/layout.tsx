@@ -111,8 +111,8 @@ export default function RootLayout({
       >
         <StyledComponentsRegistry>
           {children}
-          <Chatbot />
         </StyledComponentsRegistry>
+        <Chatbot />
       </body>
     </html>
   );
