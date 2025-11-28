@@ -40,9 +40,9 @@ const ChatButton = styled.button<{ $isOpen: boolean }>`
   `}
 `;
 
-const ChatWindow = styled.div<{ $isOpen: boolean; $height?: number }>`
+const ChatWindow = styled.div<{ $isOpen: boolean }>`
   width: 350px;
-  height: ${props => props.$height ? `${props.$height}px` : '500px'};
+  height: 500px;
   background-color: white;
   border-radius: 12px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
@@ -52,6 +52,13 @@ const ChatWindow = styled.div<{ $isOpen: boolean; $height?: number }>`
   transition: opacity 0.3s, transform 0.3s, height 0.3s;
   transform-origin: bottom right;
   
+  @media (max-width: 600px) {
+    width: 100vw;
+    right: 0;
+    height: 40vh;
+    bottom: 0;
+    border-radius: 0;
+  }
   ${props => !props.$isOpen && `
     opacity: 0;
     transform: scale(0);
@@ -194,7 +201,6 @@ const Chatbot: React.FC = () => {
     { role: 'model', parts: [{ text: 'Olá! Como posso ajudar você hoje?' }] }
   ]);
   const [isLoading, setIsLoading] = useState(false);
-  const [chatHeight, setChatHeight] = useState<number | undefined>(undefined);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -221,31 +227,6 @@ const Chatbot: React.FC = () => {
       }, 100);
     }
   }, [isLoading, isOpen]);
-
-  useEffect(() => {
-    let initialHeight: number | null = null;
-    const handleResize = () => {
-      if (window.innerWidth <= 600 && isOpen) {
-        if (!initialHeight) initialHeight = window.innerHeight;
-        const diff = initialHeight - window.innerHeight;
-        if (diff > 100) {
-          setChatHeight(window.innerHeight * 0.4);
-        } else {
-          setChatHeight(undefined); 
-        }
-      } else {
-        setChatHeight(undefined);
-        initialHeight = null;
-      }
-    };
-    if (isOpen) {
-      initialHeight = window.innerHeight;
-      window.addEventListener('resize', handleResize);
-    }
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [isOpen]);
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
@@ -307,7 +288,7 @@ const Chatbot: React.FC = () => {
 
   return (
     <ChatContainer $isOpen={isOpen}>
-      <ChatWindow $isOpen={isOpen} $height={chatHeight}>
+      <ChatWindow $isOpen={isOpen}>
         <ChatHeader>
           <HeaderTitle>
             <FaRobot /> Assistente Virtual
