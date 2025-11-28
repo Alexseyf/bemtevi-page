@@ -40,16 +40,16 @@ const ChatButton = styled.button<{ $isOpen: boolean }>`
   `}
 `;
 
-const ChatWindow = styled.div<{ $isOpen: boolean }>`
+const ChatWindow = styled.div<{ $isOpen: boolean; $height?: number }>`
   width: 350px;
-  height: 500px;
+  height: ${props => props.$height ? `${props.$height}px` : '500px'};
   background-color: white;
   border-radius: 12px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transition: opacity 0.3s, transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s, height 0.3s;
   transform-origin: bottom right;
   
   ${props => !props.$isOpen && `
@@ -194,6 +194,7 @@ const Chatbot: React.FC = () => {
     { role: 'model', parts: [{ text: 'Olá! Como posso ajudar você hoje?' }] }
   ]);
   const [isLoading, setIsLoading] = useState(false);
+  const [chatHeight, setChatHeight] = useState<number | undefined>(undefined);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -220,6 +221,31 @@ const Chatbot: React.FC = () => {
       }, 100);
     }
   }, [isLoading, isOpen]);
+
+  useEffect(() => {
+    let initialHeight: number | null = null;
+    const handleResize = () => {
+      if (window.innerWidth <= 600 && isOpen) {
+        if (!initialHeight) initialHeight = window.innerHeight;
+        const diff = initialHeight - window.innerHeight;
+        if (diff > 100) {
+          setChatHeight(window.innerHeight * 0.6);
+        } else {
+          setChatHeight(undefined); 
+        }
+      } else {
+        setChatHeight(undefined);
+        initialHeight = null;
+      }
+    };
+    if (isOpen) {
+      initialHeight = window.innerHeight;
+      window.addEventListener('resize', handleResize);
+    }
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isOpen]);
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
@@ -281,7 +307,7 @@ const Chatbot: React.FC = () => {
 
   return (
     <ChatContainer $isOpen={isOpen}>
-      <ChatWindow $isOpen={isOpen}>
+      <ChatWindow $isOpen={isOpen} $height={chatHeight}>
         <ChatHeader>
           <HeaderTitle>
             <FaRobot /> Assistente Virtual
