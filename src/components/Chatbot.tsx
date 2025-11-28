@@ -229,7 +229,7 @@ const Chatbot: React.FC = () => {
         if (!initialHeight) initialHeight = window.innerHeight;
         const diff = initialHeight - window.innerHeight;
         if (diff > 100) {
-          setChatHeight(window.innerHeight * 0.6);
+          setChatHeight(window.innerHeight * 0.4);
         } else {
           setChatHeight(undefined); 
         }
