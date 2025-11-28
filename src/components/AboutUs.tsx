@@ -52,13 +52,13 @@ const AboutUs = () => {
   return (
     <AboutContainer id="sobre">
       <AboutContent>
-        <AboutImage>
+        {/* <AboutImage>
           <img src="/images/about-school.jpg" alt="Ambiente acolhedor da nossa escola" />
-        </AboutImage>
+        </AboutImage> */}
         <AboutText>
-          <h2>Nossa Proposta</h2>
+          <h2>Nossa Missão</h2>
           <p>
-            Na Escola Infantil, acreditamos que cada criança é única e merece um ambiente 
+            Na Escola Bem-te-vi, acreditamos que cada criança é única e merece um ambiente 
             que respeite seu ritmo de desenvolvimento e estimule sua curiosidade natural.
           </p>
           <p>

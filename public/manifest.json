@@ -1,21 +1,40 @@
 {
-  "name": "Escola Infantil Bem-te-vi",
+  "name": "Escola de Educação Infantil Bem-te-vi",
   "short_name": "Bem-te-vi",
+  "description": "Educação infantil de qualidade, turno inverso e atividades extracurriculares em Pelotas.",
+  "categories": ["education", "kids", "school"],
+  "lang": "pt-BR",
   "icons": [
     {
       "src": "/images/logo-header.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "/images/logo-header.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
   "theme_color": "#4a6fb5",
   "background_color": "#ffffff",
   "start_url": "/",
   "display": "standalone",
-  "orientation": "portrait"
+  "orientation": "portrait",
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Turmas",
+      "url": "/#turmas",
+      "description": "Conheça nossas turmas"
+    },
+    {
+      "name": "Contato",
+      "url": "/#contato",
+      "description": "Entre em contato conosco"
+    }
+  ]
 }

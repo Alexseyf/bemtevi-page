@@ -17,7 +17,7 @@ const SectionTitle = styled.h2`
 
 const ClassesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -29,6 +29,9 @@ const ClassCard = styled.div`
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   
   &:hover {
     transform: translateY(-5px);
@@ -54,6 +57,9 @@ const ClassImage = styled.div`
 
 const ClassContent = styled.div`
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 `;
 
 const ClassTitle = styled.h3`
@@ -73,9 +79,45 @@ const ClassDescription = styled.p`
   font-size: 1rem;
   color: #555;
   line-height: 1.5;
+  margin-bottom: 1.2rem;
+  flex-grow: 1;
+`;
+
+const CheckButton = styled.a`
+  display: block;
+  color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s;
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
 `;
 
 const OurClasses = () => {
+  const buttonColors = {
+    bercario2: '#FF9B54',
+    maternal1: '#5D92FF',
+    maternal2: '#FF5E7D',
+    pre1: '#54D178',
+    pre2: '#8A4FFF',
+    turno_inverso: '#FFB63D'
+  };
+
+  const whatsappNumber = "5553991280638";
+  
+  const createWhatsappLink = (className: string) => {
+    const message = encodeURIComponent(`Olá! Gostaria de verificar a disponibilidade de vagas para a turma ${className}. Pode me ajudar?`);
+    return `https://wa.me/${whatsappNumber}?text=${message}`;
+  };
+  
   const classes = [
     {
       id: 'bercario2',
@@ -111,6 +153,13 @@ const OurClasses = () => {
       age: '5 a 6 anos',
       description: 'Preparação para o ensino fundamental com atividades estruturadas de alfabetização e raciocínio lógico-matemático.',
       image: '/images/pre2.jpg'
+    },
+    {
+      id: 'turno_inverso',
+      name: 'Turno Inverso',
+      age: '6 a 9 anos',
+      description: 'Apoio no desenvolvimento dos alunos do ensino fundamental com oficinas, atividades estruturadas de alfabetização e raciocínio lógico-matemático.',
+      image: '/images/turno_inverso.jpg'
     }
   ];
 
@@ -120,13 +169,21 @@ const OurClasses = () => {
       <ClassesGrid>
         {classes.map((classItem) => (
           <ClassCard key={classItem.id}>
-            <ClassImage>
+            {/* <ClassImage>
               <img src={classItem.image} alt={`Turma ${classItem.name}`} />
-            </ClassImage>
+            </ClassImage> */}
             <ClassContent>
               <ClassTitle>{classItem.name}</ClassTitle>
               <ClassAge>Faixa etária: {classItem.age}</ClassAge>
               <ClassDescription>{classItem.description}</ClassDescription>
+              <CheckButton 
+                href={createWhatsappLink(classItem.name)} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ backgroundColor: buttonColors[classItem.id as keyof typeof buttonColors] }}
+              >
+                Consultar Vagas
+              </CheckButton>
             </ClassContent>
           </ClassCard>
         ))}

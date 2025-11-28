@@ -134,7 +134,7 @@ const Testimonials = () => {
       <TestimonialsWrapper>
         {testimonials.map((testimonial) => (
           <TestimonialCard key={testimonial.id}>
-            <QuoteMark>"</QuoteMark>
+            <QuoteMark>&ldquo;</QuoteMark>
             <TestimonialContent>
               <Stars>
                 {[...Array(testimonial.stars)].map((_, i) => (

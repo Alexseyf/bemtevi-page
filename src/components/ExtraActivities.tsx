@@ -3,7 +3,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaMusic, FaChild, FaUtensils } from 'react-icons/fa';
-import { GiBoxingGlove } from 'react-icons/gi';
 import { MdSportsMartialArts } from "react-icons/md";
 
 const ActivitiesContainer = styled.section`
@@ -20,10 +19,14 @@ const SectionTitle = styled.h2`
 
 const ActivitiesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const ActivityCard = styled.div`
@@ -31,25 +34,27 @@ const ActivityCard = styled.div`
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   
   &:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   }
 `;
 
 const ActivityHeader = styled.div`
-  background-color: #4a6fb5;
-  color: white;
   padding: 1.5rem;
   display: flex;
   align-items: center;
   gap: 1rem;
+  color: white;
 `;
 
 const IconWrapper = styled.div`
   background-color: white;
-  color: #4a6fb5;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -62,20 +67,52 @@ const IconWrapper = styled.div`
 const ActivityTitle = styled.h3`
   font-size: 1.5rem;
   margin: 0;
+  color: white;
 `;
 
 const ActivityContent = styled.div`
   padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
   
   p {
     font-size: 1rem;
-    color: #555;
+    color: #333;
     line-height: 1.6;
   }
 `;
 
+type ActivityId = 'dance' | 'music' | 'capoeira' | 'cooking';
+
+interface Activity {
+  id: ActivityId;
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+}
+
 const ExtraActivities = () => {
-  const activities = [
+  const cardColors: Record<ActivityId, { bg: string; icon: string }> = {
+    dance: {
+      bg: '#FF5E7D',
+      icon: '#FF5E7D'
+    },
+    music: {
+      bg: '#5D92FF',
+      icon: '#5D92FF'
+    },
+    capoeira: {
+      bg: '#FFB63D',
+      icon: '#FFB63D'
+    },
+    cooking: {
+      bg: '#54D178',
+      icon: '#54D178'
+    }
+  };
+
+  const activities: Activity[] = [
     {
       id: 'dance',
       title: 'Dança',
@@ -96,7 +133,7 @@ const ExtraActivities = () => {
     },
     {
       id: 'cooking',
-      title: 'Culinária com a Nutricionista',
+      title: 'Culinária',
       description: 'Oficinas práticas onde as crianças aprendem sobre alimentação saudável de forma divertida. Sob orientação da nossa nutricionista, elas participam do preparo de receitas simples e nutritivas.',
       icon: <FaUtensils />
     }
@@ -108,8 +145,8 @@ const ExtraActivities = () => {
       <ActivitiesGrid>
         {activities.map((activity) => (
           <ActivityCard key={activity.id}>
-            <ActivityHeader>
-              <IconWrapper>
+            <ActivityHeader style={{ backgroundColor: cardColors[activity.id].bg }}>
+              <IconWrapper style={{ color: cardColors[activity.id].icon }}>
                 {activity.icon}
               </IconWrapper>
               <ActivityTitle>{activity.title}</ActivityTitle>

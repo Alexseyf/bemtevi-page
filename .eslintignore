@@ -1,0 +1,12 @@
+# Ignorar arquivos de compilação
+node_modules
+.next
+out
+build
+dist
+
+# Ignorar arquivos de configuração
+# next.config.mjs
+# postcss.config.mjs
+# tailwind.config.mjs
+# eslint.config.mjs
