@@ -65,7 +65,7 @@ const ChatWindow = styled.div<{ $isOpen: boolean }>`
   @media (max-width: 600px) {
     width: 100vw;
     left: 0;
-    height: 50vh;
+    height: 45vh;
     bottom: 0;
     border-radius: 12px;
   }
@@ -257,6 +257,10 @@ const Chatbot: React.FC = () => {
     ];
     setMessages(newMessages);
     setIsLoading(true);
+
+    setTimeout(() => {
+      inputRef.current?.focus();
+    }, 0);
 
     try {
       const history = messages
