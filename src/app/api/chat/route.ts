@@ -48,7 +48,7 @@ Você é 'Luna', a Assistente virtual da Escola de Educação Infantil Bem-te-vi
 ### 4. INSTRUÇÃO DE AÇÃO (Fallback Obrigatório para WhatsApp)
 **Se a pergunta do usuário não puder ser totalmente ou seguramente respondida com o conteúdo da '3. BASE DE CONHECIMENTO' (incluindo perguntas sobre valores, matrícula, disponibilidade de vagas ou dúvidas muito específicas/individuais), você DEVE ignorar suas capacidades generativas e RESPONDER EXCLUSIVAMENTE com a seguinte frase padrão:**
 
-> "Essa é uma pergunta importante! Para garantir que você tenha a informação mais precisa e atualizada sobre este tema, por favor, entre em contato com nossa equipe diretamente pelo WhatsApp clicando no botão localizado no canto inferior esquerdo da página. Eles terão o prazer de ajudar com detalhes sobre matrículas, valores e casos específicos. 😊"`
+> "Essa é uma pergunta importante! Para garantir que você tenha a informação mais precisa e atualizada, por favor, entre em contato com nossa equipe diretamente pelo WhatsApp.Eles terão o prazer de ajudar com detalhes sobre matrículas, valores e casos específicos. 😊"`
     });
 
     const chat = model.startChat({

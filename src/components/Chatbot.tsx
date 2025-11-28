@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { FaRobot, FaPaperPlane, FaTimes, FaMinus } from 'react-icons/fa';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const ChatContainer = styled.div<{ $isOpen: boolean }>`
   position: fixed;
@@ -64,7 +65,7 @@ const ChatWindow = styled.div<{ $isOpen: boolean }>`
   @media (max-width: 600px) {
     width: 100vw;
     left: 0;
-    height: 40vh;
+    height: 50vh;
     bottom: 0;
     border-radius: 12px;
   }
@@ -203,6 +204,8 @@ interface Message {
   parts: { text: string }[];
 }
 
+const WHATSAPP_FALLBACK_KEYWORD = "WhatsApp";
+
 const Chatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
@@ -310,11 +313,36 @@ const Chatbot: React.FC = () => {
             </HeaderControls>
           </ChatHeader>
           <MessagesContainer>
-            {messages.map((msg, index) => (
-              <MessageBubble key={index} $isUser={msg.role === 'user'}>
-                {msg.parts[0].text}
-              </MessageBubble>
-            ))}
+            {messages.map((msg, index) => {
+              const isWhatsappFallback = msg.parts[0].text.includes(WHATSAPP_FALLBACK_KEYWORD);
+              return (
+                <MessageBubble key={index} $isUser={msg.role === 'user'}>
+                  {msg.parts[0].text}
+                  {isWhatsappFallback && (
+                    <div style={{ marginTop: 12, display: 'flex', justifyContent: 'center' }}>
+                      <a
+                        href="https://wa.me/5535991280638"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          width: 48,
+                          height: 48,
+                          background: '#25D366',
+                          borderRadius: '50%',
+                          textDecoration: 'none',
+                          boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
+                        }}
+                      >
+                        <FaWhatsapp size={28} color="white" />
+                      </a>
+                    </div>
+                  )}
+                </MessageBubble>
+              );
+            })}
             {isLoading && (
               <TypingIndicator>Digitando...</TypingIndicator>
             )}
