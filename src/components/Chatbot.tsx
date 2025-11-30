@@ -141,7 +141,7 @@ const MessageBubble = styled.div<{ $isUser: boolean }>`
   border-bottom-left-radius: ${props => props.$isUser ? '18px' : '4px'};
 `;
 
-const InputArea = styled.form`
+const InputArea = styled.div`
   padding: 15px;
   border-top: 1px solid #eee;
   display: flex;
@@ -244,8 +244,8 @@ const Chatbot: React.FC = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleSendMessage = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSendMessage = async (e?: React.SyntheticEvent) => {
+    e?.preventDefault();
     if (!inputValue.trim() || isLoading) return;
 
     const userMessage = inputValue.trim();
@@ -258,9 +258,8 @@ const Chatbot: React.FC = () => {
     setMessages(newMessages);
     setIsLoading(true);
 
-    setTimeout(() => {
-      inputRef.current?.focus();
-    }, 0);
+    // Keep focus on input
+    inputRef.current?.focus();
 
     try {
       const history = messages
@@ -299,6 +298,10 @@ const Chatbot: React.FC = () => {
       ]);
     } finally {
       setIsLoading(false);
+      // Ensure focus is maintained after loading
+      setTimeout(() => {
+        inputRef.current?.focus();
+      }, 0);
     }
   };
 
@@ -352,16 +355,23 @@ const Chatbot: React.FC = () => {
             )}
             <div ref={messagesEndRef} />
           </MessagesContainer>
-          <InputArea onSubmit={handleSendMessage}>
+          <InputArea>
             <InputField 
               ref={inputRef}
               type="text" 
               placeholder="Digite sua mensagem..." 
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              disabled={isLoading}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  handleSendMessage(e);
+                }
+              }}
             />
-            <SendButton type="submit" disabled={isLoading || !inputValue.trim()}>
+            <SendButton 
+              onClick={handleSendMessage} 
+              disabled={!inputValue.trim()}
+            >
               <FaPaperPlane />
             </SendButton>
           </InputArea>
