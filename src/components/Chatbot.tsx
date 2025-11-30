@@ -328,7 +328,7 @@ const Chatbot: React.FC = () => {
                   {isWhatsappFallback && (
                     <div style={{ marginTop: 12, display: 'flex', justifyContent: 'center' }}>
                       <a
-                        href="https://wa.me/5535991280638"
+                        href="https://wa.me/5553991280638"
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{
