@@ -69,6 +69,9 @@ const HeroContent = styled.div`
     font-weight: 700;
     margin-bottom: 0.5rem;
     
+    @media (max-width: 1024px) {
+      font-size: 2.4rem;
+    }
     @media (max-width: 768px) {
       font-size: 2.2rem;
     }
@@ -79,8 +82,11 @@ const HeroContent = styled.div`
     font-weight: 600;
     margin-bottom: 1rem;
     
+    @media (max-width: 1024px) {
+      font-size: 1.4rem;
+    }
     @media (max-width: 768px) {
-      font-size: 1.6rem;
+      font-size: 1.1rem;
     }
   }
   
@@ -88,8 +94,11 @@ const HeroContent = styled.div`
     font-size: 1.5rem;
     margin-bottom: 2rem;
     
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       font-size: 1.1rem;
+    }
+    @media (max-width: 768px) {
+      font-size: 1rem;
     }
   }
   

@@ -38,15 +38,35 @@ const ChatButton = styled.button<{ $isOpen: boolean }>`
   font-size: 1.5rem;
   cursor: pointer;
   transition: transform 0.3s, background-color 0.3s;
+  animation: chatPulse 2.2s infinite;
+  overflow: hidden;
+  padding: 0;
   
+  @keyframes chatPulse {
+    0% {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(74, 111, 181, 0.3);
+      transform: scale(1);
+    }
+    60% {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 0 12px rgba(74, 111, 181, 0.08);
+      transform: scale(1.07);
+    }
+    100% {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(74, 111, 181, 0.0);
+      transform: scale(1);
+    }
+  }
+
   &:hover {
     background-color: #3a5fa5;
     transform: scale(1.05);
+    animation: none;
   }
 
   /* Hide button when chat is open, or transform it */
   ${props => props.$isOpen && `
     display: none;
+    animation: none;
   `}
 `;
 
@@ -63,11 +83,15 @@ const ChatWindow = styled.div<{ $isOpen: boolean }>`
   transform-origin: bottom right;
   
   @media (max-width: 600px) {
-    width: 100vw;
-    left: 0;
+    width: calc(100vw - 32px);
+    margin-left: 16px;
+    margin-right: 16px;
     height: 45vh;
     bottom: 0;
     border-radius: 12px;
+    left: 0;
+    right: 0;
+    position: fixed;
   }
   ${props => !props.$isOpen && `
     opacity: 0;
@@ -378,7 +402,7 @@ const Chatbot: React.FC = () => {
         </ChatWindow>
       )}
       <ChatButton onClick={toggleChat} $isOpen={isOpen} aria-label="Abrir chat">
-        <FaRobot />
+        <img src="/luna-chat.jpg" alt="Abrir chat" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
       </ChatButton>
     </ChatContainer>
   );
