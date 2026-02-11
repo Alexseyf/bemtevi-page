@@ -102,7 +102,7 @@ const FooterBottom = styled.div`
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
   return (
     <FooterContainer>
       <FooterContent>
@@ -118,7 +118,7 @@ const Footer = () => {
             </a>
           </SocialLinks>
         </FooterColumn>
-        
+
         <FooterColumn>
           <h3>Links Rápidos</h3>
           <FooterLinks>
@@ -130,7 +130,7 @@ const Footer = () => {
             <li><a href="#contato">Contato</a></li>
           </FooterLinks>
         </FooterColumn>
-        
+
         <FooterColumn>
           <h3>Horário de Funcionamento</h3>
           <FooterLinks>
@@ -140,7 +140,7 @@ const Footer = () => {
             <li>Feriados: Consultar calendário</li>
           </FooterLinks>
         </FooterColumn>
-        
+
         <FooterColumn>
           <h3>Contato</h3>
           <FooterLinks>
@@ -151,16 +151,16 @@ const Footer = () => {
           </FooterLinks>
         </FooterColumn>
       </FooterContent>
-      
+
       <FooterBottom>
         <p>
-          © {currentYear} Escola de Educação Infantil Bem-te-vi. 
+          © <span suppressHydrationWarning>{currentYear}</span> Escola de Educação Infantil Bem-te-vi.
           <br />
           Todos os direitos reservados.
           <br />
           Feito com <span style={{ display: 'inline-flex', alignItems: 'center', verticalAlign: 'middle' }}>
             <IoIosHeart size={16} style={{ color: '#ff6b6b', margin: '0 0.2rem' }} />
-          </span> 
+          </span>
           para o futuro das nossas crianças.
         </p>
         <p>
