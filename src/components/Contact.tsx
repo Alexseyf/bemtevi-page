@@ -310,7 +310,7 @@ const Contact = () => {
           
           <MapContainer>
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.2836050313804!2d-52.34144812337247!3d-31.76274991308253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9511b5a26717e8a1%3A0xe0ce7576b927df9e!2sR.%20Quinze%20de%20Novembro%2C%20869%20-%20Centro%2C%20Pelotas%20-%20RS%2C%2096015-000!5e0!3m2!1spt-BR!2sbr!4v1748718285281!5m2!1spt-BR!2sbr" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d337.4755808969074!2d-52.3389194957601!3d-31.76270447671497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9511b5a26718211d%3A0xc11e09ef1259cebf!2sR.%20Quinze%20de%20Novembro%2C%20869%20-%20Centro%2C%20Pelotas%20-%20RS%2C%2096015-000!5e0!3m2!1spt-BR!2sbr!4v1774697543440!5m2!1spt-BR!2sbr" 
               title="Localização da Escola Infantil"
               allowFullScreen={false}
               loading="lazy"
