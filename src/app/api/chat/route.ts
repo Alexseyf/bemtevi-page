@@ -15,7 +15,7 @@ export async function POST(req: Request) {
 
     const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({ 
-      model: "gemini-flash-latest",
+      model: "gemini-2.5-flash",
       systemInstruction: `## System Instruction para 'Luna', a Assistente Virtual da Escola Bem-te-vi
 
 ### 1. Papel e Personalidade
