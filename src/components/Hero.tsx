@@ -152,7 +152,7 @@ const Hero = () => {
     <HeroContainer>
       <HeroWrapper>
         <HeroImage>
-          <img src="/images/banner-img.png" alt="Escola Bem-te-vi" />
+          <img src="/images/banner-img.webp" alt="Escola Bem-te-vi" />
         </HeroImage>
         <HeroContent>
           <h1>Escola de Educação Infantil Bem-te-vi</h1>
