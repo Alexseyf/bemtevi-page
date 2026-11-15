@@ -79,7 +79,9 @@ def validate(base):
             assert href[1:] in ids, href
     for img in page.matching('img'):
         assert 'alt' in img and 'width' in img and 'height' in img
-    assert 'No Centro de Pelotas/RS' in html
+    assert 'No Centro de Pelotas, um ambiente acolhedor' in html
+    manifest = page.matching('link', rel='manifest')
+    assert len(manifest) == 1 and manifest[0].get('crossorigin') == 'use-credentials'
     xml = fetch(base, '/sitemap.xml', 'xml')
     root = ET.fromstring(xml)
     ns = {'s': 'http://www.sitemaps.org/schemas/sitemap/0.9'}

@@ -68,3 +68,11 @@ Antes do merge, descartar a branch encerra a mudança sem afetar produção. Ap�
 - A tentativa HTTP de validar o Preview chegou à autenticação da Vercel; o HTML recebido não era o da escola. A revisão automática também negou a navegação para `vercel.com`, por poder expor dados privados da conta. Nenhuma proteção foi desativada ou contornada.
 - **Pendente:** validação autenticada da home, sitemap, robots, cabeçalhos de indexação e interface no Preview. O build remoto pronto não equivale à validação dessas respostas. Os mesmos checks de conteúdo passaram no build local.
 - Produção permanece no commit `93289d2`; nenhum merge, promoção ou deploy de produção foi realizado. A revisão autenticada do Preview deve preceder qualquer autorização de publicação.
+
+## Ajuste editorial e manifesto após revisão do responsável
+
+- Restaurado o H1 visível para “Escola de Educação Infantil Bem-te-vi”, sem “em Pelotas”. Mantida a localização no título SEO, descrição, texto, endereço e JSON-LD.
+- Introdução simplificada para “No Centro de Pelotas, um ambiente acolhedor…”.
+- O relato de CORS mostra `/manifest.json` redirecionando à autenticação da Vercel. Adicionado `crossOrigin="use-credentials"` exclusivamente ao link do manifesto para enviar a sessão existente do usuário autenticado, conforme https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest.
+- Não foram alterados headers CORS, configurações da Vercel nem mecanismos de proteção. O ajuste não concede acesso sem autenticação.
+- A confirmação de que o erro desapareceu no Preview fica com o responsável, que optou por fazer a verificação manualmente. Usar o novo Preview após autenticar; URLs imutáveis de deployments anteriores continuam com o código anterior.

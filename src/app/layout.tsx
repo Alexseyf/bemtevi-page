@@ -78,7 +78,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
-        <link rel="manifest" href="/manifest.json" />
+        <link rel="manifest" href="/manifest.json" crossOrigin="use-credentials" />
         <link rel="icon" href="/images/logo-header.png" />
         <link rel="apple-touch-icon" href="/images/logo-header.png" />
         <script type="application/ld+json">

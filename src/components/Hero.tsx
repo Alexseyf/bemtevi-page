@@ -155,10 +155,10 @@ const Hero = () => {
           <img src="/images/banner-img.webp" alt="Criança com traje de formatura e logomarca da Escola Bem-te-vi" width={2000} height={1733} loading="eager" fetchPriority="high" />
         </HeroImage>
         <HeroContent>
-          <h1>Escola de Educação Infantil Bem-te-vi em Pelotas</h1>
+          <h1>Escola de Educação Infantil Bem-te-vi</h1>
           <h2>Onde o Aprender se Torna uma Aventura Feliz!</h2>
           <p>
-            No Centro de Pelotas/RS, um ambiente acolhedor e seguro para o desenvolvimento integral do seu filho,
+            No Centro de Pelotas, um ambiente acolhedor e seguro para o desenvolvimento integral do seu filho,
             com atividades lúdicas e educativas que estimulam a criatividade e o aprendizado.
           </p>
           <CTAButton href="https://www.instagram.com/bemteviescolainfantil/" target="_blank" rel="noopener noreferrer">
