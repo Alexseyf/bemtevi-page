@@ -3,6 +3,7 @@ import json
 import sys
 from html.parser import HTMLParser
 from urllib.request import urlopen
+from urllib.parse import urlsplit
 import xml.etree.ElementTree as ET
 
 CANONICAL = 'https://www.escolabemtevi.com.br/'
@@ -36,6 +37,9 @@ class Page(HTMLParser):
 
 def fetch(base, path, content_type):
     with urlopen(base + path, timeout=30) as response:
+        assert urlsplit(response.url).netloc == urlsplit(base).netloc, (
+            'Redirect to another host; authenticate in the Preview before validation', path
+        )
         assert response.status == 200, (path, response.status)
         assert content_type in response.headers.get('Content-Type', ''), path
         body = response.read().decode()

@@ -58,3 +58,13 @@ Antes do merge, descartar a branch encerra a mudança sem afetar produção. Ap�
 - O H1 ampliado expôs a limitação da altura fixa do hero no desktop. A seção passou a usar altura mínima e espaço superior para acomodar o conteúdo sem sobrepor o menu, preservando os estilos e a composição.
 - Não foram medidos Core Web Vitals em campo; não se declara ganho de desempenho. First Load JS da home permanece 127 kB arredondados no relatório do Next.js, antes e depois.
 - `vercel.json`, `package.json`, lockfile, next.config e configurações externas não foram alterados.
+
+## Resultado do Preview
+
+- Commit de implementação: `b848931`. Push feito exclusivamente para `codex/seo-tecnico-bemtevi`.
+- A integração Git criou o deployment `dpl_GVqXkU9ghHEboHpGGNgwUzomLMW1`, destino **preview**, status **Ready**, confirmado pela CLI da Vercel.
+- URL imutável dessa implementação: https://bemtevi-page-h8x8nlnzz-alexseyfs-projects.vercel.app
+- Alias da branch: https://bemtevi-page-git-codex-seo-tecnico-bemtevi-alexseyfs-projects.vercel.app
+- A tentativa HTTP de validar o Preview chegou à autenticação da Vercel; o HTML recebido não era o da escola. A revisão automática também negou a navegação para `vercel.com`, por poder expor dados privados da conta. Nenhuma proteção foi desativada ou contornada.
+- **Pendente:** validação autenticada da home, sitemap, robots, cabeçalhos de indexação e interface no Preview. O build remoto pronto não equivale à validação dessas respostas. Os mesmos checks de conteúdo passaram no build local.
+- Produção permanece no commit `93289d2`; nenhum merge, promoção ou deploy de produção foi realizado. A revisão autenticada do Preview deve preceder qualquer autorização de publicação.
