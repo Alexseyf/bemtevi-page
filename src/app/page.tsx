@@ -16,25 +16,20 @@ import WhatsAppFloat from '../components/WhatsAppFloat';
 
 export default function Home() {
   return (
-    <main>
+    <>
       <Header />
-
-      <Hero />
-
-      <AboutUs />
-
-      <OurClasses />
- 
-      <InverseShift />
-
-      <ExtraActivities />
-
-      <Contact />
-
+      <main>
+        <Hero />
+        <AboutUs />
+        <OurClasses />
+        <InverseShift />
+        <ExtraActivities />
+        <Contact />
+      </main>
       <Footer />
 
       <BackToTop />
       <WhatsAppFloat />
-    </main>
+    </>
   );
 }

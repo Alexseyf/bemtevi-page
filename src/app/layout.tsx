@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Escola de Educação Infantil Bem-te-vi | Pelotas",
-  description: "Um ambiente acolhedor e seguro para o desenvolvimento integral do seu filho. Educação infantil de qualidade, turno inverso e atividades extracurriculares em Pelotas.",
+  title: "Escola Infantil e Berçário em Pelotas | Bem-te-vi",
+  description: "Conheça a Escola Bem-te-vi, no Centro de Pelotas. Educação infantil, berçário, maternal, pré-escola e turno inverso. Agende uma visita!",
   keywords: ["escola infantil", "educação infantil", "bem-te-vi", "pelotas", "turno inverso", "pré-escola", "berçário", "maternal", "jardim de infância", "escola particular pelotas"],
   authors: [{ name: "Escola Infantil Bem-te-vi" }],
   creator: "Escola Infantil Bem-te-vi",
@@ -28,28 +28,28 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL("https://www.escolabemtevi.com.br"),
   alternates: {
-    canonical: "/",
+    canonical: "https://www.escolabemtevi.com.br/",
   },
   openGraph: {
-    title: "Escola de Educação Infantil Bem-te-vi | Pelotas",
-    description: "Um ambiente acolhedor e seguro para o desenvolvimento integral do seu filho. Educação infantil de qualidade em Pelotas.",
-    url: "https://www.bemtevi.com.br",
+    title: "Escola Infantil e Berçário em Pelotas | Bem-te-vi",
+    description: "Conheça a Escola Bem-te-vi, no Centro de Pelotas. Educação infantil, berçário, maternal, pré-escola e turno inverso. Agende uma visita!",
+    url: "https://www.escolabemtevi.com.br/",
     siteName: "Escola Infantil Bem-te-vi",
     locale: "pt_BR",
     type: "website",
     images: [
       {
         url: "/images/logo-nome.png",
-        width: 800,
-        height: 600,
+        width: 2178,
+        height: 667,
         alt: "Logo Escola Infantil Bem-te-vi",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Escola de Educação Infantil Bem-te-vi | Pelotas",
-    description: "Um ambiente acolhedor e seguro para o desenvolvimento integral do seu filho. Educação infantil de qualidade em Pelotas.",
+    title: "Escola Infantil e Berçário em Pelotas | Bem-te-vi",
+    description: "Conheça a Escola Bem-te-vi, no Centro de Pelotas. Educação infantil, berçário, maternal, pré-escola e turno inverso. Agende uma visita!",
     images: ["/images/logo-nome.png"],
   },
   robots: {
@@ -84,10 +84,11 @@ export default function RootLayout({
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "EducationalOrganization",
+            "@type": "Preschool",
             "name": "Escola de Educação Infantil Bem-te-vi",
             "description": "Um ambiente acolhedor e seguro para o desenvolvimento integral do seu filho. Educação infantil de qualidade em Pelotas.",
-            "url": "https://www.escolabemtevi.com.br",
+            "url": "https://www.escolabemtevi.com.br/",
+            "openingHours": "Mo-Fr 07:00-19:00",
             "logo": "https://www.escolabemtevi.com.br/images/logo.png",
             "address": {
               "@type": "PostalAddress",

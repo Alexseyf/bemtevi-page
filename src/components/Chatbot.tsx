@@ -402,7 +402,7 @@ const Chatbot: React.FC = () => {
         </ChatWindow>
       )}
       <ChatButton onClick={toggleChat} $isOpen={isOpen} aria-label="Abrir chat">
-        <img src="/luna-chat.jpg" alt="Abrir chat" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
+        <img src="/luna-chat.jpg" alt="" width={1024} height={1024} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
       </ChatButton>
     </ChatContainer>
   );

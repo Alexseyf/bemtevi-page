@@ -126,7 +126,6 @@ const Footer = () => {
             <li><a href="#turmas">Nossas Turmas</a></li>
             <li><a href="#turno-inverso">Turno Inverso</a></li>
             <li><a href="#atividades">Atividades Extras</a></li>
-            <li><a href="#galeria">Galeria</a></li>
             <li><a href="#contato">Contato</a></li>
           </FooterLinks>
         </FooterColumn>

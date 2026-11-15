@@ -110,7 +110,7 @@ const IconWrapper = styled.div`
   flex-shrink: 0;
 `;
 
-const ActivityTitle = styled.h4`
+const ActivityTitle = styled.h3`
   font-size: 1.2rem;
   color: white;
   margin: 0;
