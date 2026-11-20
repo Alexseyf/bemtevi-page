@@ -40,8 +40,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/images/logo-nome.png",
-        width: 2178,
-        height: 667,
+        width: 1255,
+        height: 400,
         alt: "Logo Escola Infantil Bem-te-vi",
       },
     ],
