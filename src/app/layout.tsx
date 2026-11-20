@@ -59,8 +59,8 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/images/logo-header.png',
-        type: 'image/png',
+        url: '/favicon.ico?v=2027',
+        type: 'image/x-icon',
       },
     ],
     apple: {
@@ -79,8 +79,6 @@ export default function RootLayout({
     <html lang="pt-BR">
       <head>
         <link rel="manifest" href="/manifest.json" crossOrigin="use-credentials" />
-        <link rel="icon" href="/images/logo-header.png" />
-        <link rel="apple-touch-icon" href="/images/logo-header.png" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
