@@ -48,6 +48,18 @@ const HeroImage = styled.div`
     max-width: 100%;
     object-fit: contain;
   }
+
+  @media (min-width: 1200px) {
+    min-width: 0;
+    justify-content: flex-end;
+
+    img {
+      width: min(700px, calc(50vw - 80px));
+      height: auto;
+      max-width: none;
+      max-height: none;
+    }
+  }
   
   @media (max-width: 768px) {
     flex: 0 0 100%;
