@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { FaInstagram } from 'react-icons/fa';
 import styled from 'styled-components';
 
 const AboutContainer = styled.section`
@@ -48,6 +49,29 @@ const AboutText = styled.div`
   }
 `;
 
+const InstagramLink = styled.a`
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: linear-gradient(45deg, #ad491a, #bd245b 48%, #833ab4);
+  color: white;
+  font-weight: 600;
+
+  &:hover {
+    filter: brightness(0.94);
+  }
+
+  svg {
+    flex: none;
+  }
+`;
+
 const AboutUs = () => {
   return (
     <AboutContainer id="sobre">
@@ -74,6 +98,10 @@ const AboutUs = () => {
             comprometidos em proporcionar experiências enriquecedoras que estimulam 
             o desenvolvimento cognitivo, social, emocional e físico de cada aluno.
           </p>
+          <InstagramLink href="https://www.instagram.com/bemteviescolainfantil/" target="_blank" rel="noopener noreferrer" aria-label="Conheça nossa escola no Instagram">
+            <FaInstagram size={20} aria-hidden="true" />
+            Conheça nossa escola
+          </InstagramLink>
         </AboutText>
       </AboutContent>
     </AboutContainer>

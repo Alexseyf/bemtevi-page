@@ -7,6 +7,10 @@ import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from 'react-icons/fa';
 const ContactContainer = styled.section`
   padding: 5rem 2rem;
   background-color: #f0f7ff;
+
+  @media (max-width: 768px) {
+    padding-inline: 1rem;
+  }
 `;
 
 const SectionTitle = styled.h2`
@@ -18,25 +22,26 @@ const SectionTitle = styled.h2`
 
 const ContactWrapper = styled.div`
   max-width: 1200px;
-  width: 100%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   
   @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
   }
 `;
 
 const ContactForm = styled.form`
-  box-sizing: border-box;
-  width: 100%;
-  min-width: 0;
   background-color: white;
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    padding: 1.25rem;
+  }
 `;
 
 const FormTitle = styled.h3`
@@ -58,7 +63,6 @@ const Label = styled.label`
 `;
 
 const Input = styled.input`
-  box-sizing: border-box;
   width: 100%;
   padding: 0.8rem;
   border: 1px solid #ccc;
@@ -77,7 +81,6 @@ const Input = styled.input`
 `;
 
 const TextArea = styled.textarea`
-  box-sizing: border-box;
   width: 100%;
   padding: 0.8rem;
   border: 1px solid #ccc;
@@ -114,19 +117,20 @@ const SubmitButton = styled.button`
 `;
 
 const ContactInfo = styled.div`
-  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 2rem;
 `;
 
 const InfoCard = styled.div`
-  box-sizing: border-box;
-  width: 100%;
   background-color: white;
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    padding: 1.25rem;
+  }
 `;
 
 const InfoTitle = styled.h3`
@@ -153,12 +157,16 @@ const InfoItem = styled.li`
 `;
 
 const IconWrapper = styled.div`
+  flex: none;
   color: #5077bf;
   font-size: 1.2rem;
   margin-top: 0.2rem;
 `;
 
 const InfoText = styled.div`
+  min-width: 0;
+  overflow-wrap: anywhere;
+
   p {
     margin: 0;
     color: #333;
