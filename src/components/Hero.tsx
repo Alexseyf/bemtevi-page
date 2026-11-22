@@ -62,7 +62,7 @@ const HeroImage = styled.div`
   
   @media (max-width: 768px) {
     img {
-      width: clamp(8rem, 27svh, 15rem);
+      width: clamp(9rem, 33svh, 18rem);
       height: auto;
     }
   }
