@@ -122,7 +122,7 @@ const HeroContent = styled.div`
 `;
 
 const CTAButton = styled.a`
-  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  background: #25d366;
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 25px;
@@ -137,6 +137,7 @@ const CTAButton = styled.a`
   white-space: nowrap;
   
   &:hover {
+    background: #1fbd5b;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
   }
