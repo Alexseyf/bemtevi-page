@@ -24,3 +24,13 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@media (max-width: 768px) {
+  main > :is(#sobre, #turmas, #turno-inverso, #atividades, #contato) {
+    padding-block: 2.5rem;
+  }
+
+  main > :is(#turmas, #atividades, #contato) > h2 {
+    margin-bottom: 1.5rem;
+  }
+}
