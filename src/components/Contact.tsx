@@ -18,6 +18,7 @@ const SectionTitle = styled.h2`
 
 const ContactWrapper = styled.div`
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -29,6 +30,9 @@ const ContactWrapper = styled.div`
 `;
 
 const ContactForm = styled.form`
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
   background-color: white;
   padding: 2rem;
   border-radius: 8px;
@@ -54,6 +58,7 @@ const Label = styled.label`
 `;
 
 const Input = styled.input`
+  box-sizing: border-box;
   width: 100%;
   padding: 0.8rem;
   border: 1px solid #ccc;
@@ -72,6 +77,7 @@ const Input = styled.input`
 `;
 
 const TextArea = styled.textarea`
+  box-sizing: border-box;
   width: 100%;
   padding: 0.8rem;
   border: 1px solid #ccc;
@@ -108,12 +114,15 @@ const SubmitButton = styled.button`
 `;
 
 const ContactInfo = styled.div`
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 2rem;
 `;
 
 const InfoCard = styled.div`
+  box-sizing: border-box;
+  width: 100%;
   background-color: white;
   padding: 2rem;
   border-radius: 8px;
